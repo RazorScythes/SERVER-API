@@ -63,7 +63,8 @@ const db = mongoose.connection
 // db.on('error', (err) => {
 //     console.log(err)
 // })
-mongoose.connect(`mongodb://127.0.0.1:27017/${process.env.DATABASE}`).then(() => {process.env.PROTOCOL === 'https' ? 
+mongoose.connect(`mongodb+srv://RazorScythe:QMciXCA2YyiaqmRX@cluster0.idzctai.mongodb.net/?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(() => {process.env.PROTOCOL === 'https' ? 
     https.createServer(options, app).listen(port, (err)=> {
         if(err) throw err
         console.log(`Server is running on PORT: ${port}`)
@@ -146,6 +147,7 @@ async function defaultAdmin() {
     let password = "admin"
 
     try {
+        console.log("OK")
         let hashedPassword = await bcrypt.hash(password, 12);
 
         const newAccount = new User({
