@@ -86,7 +86,7 @@ app.use(hsts({
 
 app.use(morgan('dev'))
 app.use(express.urlencoded({
-    limit: '50mb',
+    limit: '200mb',
     parameterLimit: 100000,
     extended: true 
 }))
